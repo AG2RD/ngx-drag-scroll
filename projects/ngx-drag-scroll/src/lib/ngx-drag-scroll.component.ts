@@ -284,10 +284,10 @@ export class DragScrollComponent
       'true'
     );
 
-    this.displayType =
-      typeof window !== 'undefined'
-        ? window.getComputedStyle(this._elementRef.nativeElement).display
-        : 'block';
+    this.displayType = 'block';
+      // typeof window?.getComputedStyle !== 'undefined'
+      //   ? window.getComputedStyle(this._elementRef.nativeElement)?.display
+      //   : 'block';
 
     this._renderer.setStyle(
       this._contentRef.nativeElement,
@@ -340,10 +340,11 @@ export class DragScrollComponent
     this.dsInitialized.emit();
     this.adjustMarginToLastChild();
 
-    this.rtl =
-      getComputedStyle(this._contentRef.nativeElement).getPropertyValue(
-        'direction'
-      ) === 'rtl';
+    console.log("TEST");
+    // this.rtl = (typeof window?.getComputedStyle !== 'undefined'
+    //     ? window?.getComputedStyle(this._elementRef.nativeElement)?.getPropertyValue('direction')
+    //     : 'rtl'
+    // ) === 'rtl';
   }
 
   ngAfterViewChecked() {
